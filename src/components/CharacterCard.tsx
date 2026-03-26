@@ -26,7 +26,7 @@ export function CharacterCard() {
           {rank.emoji}
         </div>
         <div>
-          <div className="text-white font-bold text-lg">Dr. Ethan</div>
+          <div className="text-white font-bold text-lg">Dr. Karis</div>
           <div className="text-sm font-semibold" style={{ color: rank.color }}>
             {rank.rank}
           </div>

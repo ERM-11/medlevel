@@ -11,24 +11,54 @@ function getMondayOfWeek(date: Date): string {
   return d.toISOString().slice(0, 10)
 }
 
-const BOSS_ROTATION: Array<{ specialty: Specialty; targetQ: number; targetAcc: number; badge: string }> = [
-  { specialty: 'Cardiology',        targetQ: 25, targetAcc: 70, badge: 'Cardio Warrior' },
-  { specialty: 'Neurology',         targetQ: 20, targetAcc: 65, badge: 'Neuro Knight' },
-  { specialty: 'Respiratory',       targetQ: 25, targetAcc: 70, badge: 'Lung Champion' },
-  { specialty: 'Gastroenterology',  targetQ: 20, targetAcc: 65, badge: 'GI Master' },
-  { specialty: 'Renal',             targetQ: 20, targetAcc: 65, badge: 'Renal Ranger' },
-  { specialty: 'Haematology',       targetQ: 20, targetAcc: 65, badge: 'Blood Mage' },
-  { specialty: 'Emergency Medicine',targetQ: 30, targetAcc: 70, badge: 'ED Veteran' },
-  { specialty: 'Pharmacology',      targetQ: 25, targetAcc: 75, badge: 'Pharma Lord' },
-]
+const BADGE_FOR_SPECIALTY: Partial<Record<Specialty, string>> = {
+  'Cardiology':         'Cardio Warrior',
+  'Neurology':          'Neuro Knight',
+  'Respiratory':        'Lung Champion',
+  'Gastroenterology':   'GI Master',
+  'Renal':              'Renal Ranger',
+  'Haematology':        'Blood Mage',
+  'Emergency Medicine': 'ED Veteran',
+  'Pharmacology':       'Pharma Lord',
+  'Endocrinology':      'Endo Expert',
+  'Infectious Disease': 'ID Hunter',
+  'Rheumatology':       'Joint Specialist',
+  'Paediatrics':        'Paeds Pro',
+  'Psychiatry':         'Mind Master',
+  'Surgery':            'Surgical Ace',
+  'Orthopaedics':       'Bone Breaker',
+  'Obstetrics & Gynaecology': 'O&G Champion',
+  'Dermatology':        'Skin Savant',
+  'Ophthalmology':      'Eye Specialist',
+  'ENT':                'ENT Expert',
+  'Statistics & EBM':   'Evidence Guru',
+}
 
 export function WeeklyBossCard() {
   const { sessions } = useStore()
   const weekStart = getMondayOfWeek(new Date())
 
-  // Pick boss based on week number
+  // Pick from specialties that have had at least one session logged
+  const studiedSpecialties = [...new Set(sessions.map((s) => s.specialty))]
+
+  if (studiedSpecialties.length === 0) {
+    return (
+      <div className="bg-gray-900 border border-gray-700 rounded-2xl p-6">
+        <div className="text-red-400 font-bold text-xs uppercase tracking-widest mb-2">⚔️ Weekly Boss</div>
+        <div className="text-gray-500 text-sm">Log your first session to unlock the weekly boss challenge.</div>
+      </div>
+    )
+  }
+
+  // Deterministic pick based on week number, cycling through studied specialties
   const weekNum = Math.floor(new Date(weekStart).getTime() / (7 * 24 * 60 * 60 * 1000))
-  const boss = BOSS_ROTATION[weekNum % BOSS_ROTATION.length]
+  const specialty = studiedSpecialties[weekNum % studiedSpecialties.length]
+  const boss = {
+    specialty,
+    targetQ: 25,
+    targetAcc: 70,
+    badge: BADGE_FOR_SPECIALTY[specialty] ?? `${specialty} Champion`,
+  }
 
   // Calculate progress this week
   const weekSessions = sessions.filter((s) => s.date >= weekStart && s.specialty === boss.specialty)

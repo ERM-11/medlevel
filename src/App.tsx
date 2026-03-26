@@ -31,7 +31,7 @@ export default function App() {
       <header className="border-b border-gray-800 px-4 py-3 flex items-center justify-between sticky top-0 bg-gray-950/90 backdrop-blur z-40">
         <div className="flex items-center gap-2">
           <span className="text-brand-400 font-black text-xl tracking-tight">Med</span>
-          <span className="text-white font-black text-xl tracking-tight">Level</span>
+          <span className="text-white font-black text-xl tracking-tight">way</span>
         </div>
         <nav className="hidden sm:flex gap-1">
           {NAV_ITEMS.map((item) => (

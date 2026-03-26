@@ -57,13 +57,13 @@ export interface WeeklyBoss {
 }
 
 export type Rank =
-  | 'Fresher'
-  | 'Pre-clinical'
-  | 'Clinical Year'
+  | 'Med Student'
+  | 'Pre-Clinical Student'
+  | 'Clinical Student'
+  | 'Final Year Student'
   | 'F1 Doctor'
   | 'F2 Doctor'
-  | 'SHO'
-  | 'SpR'
+  | 'Core Trainee'
   | 'Registrar'
   | 'Consultant'
 
