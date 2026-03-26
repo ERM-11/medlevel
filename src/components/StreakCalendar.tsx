@@ -9,7 +9,7 @@ function getLast90Days(): string[] {
   return days
 }
 
-function getXPForDate(sessions: ReturnType<typeof useStore>['sessions'], date: string): number {
+function getXPForDate(sessions: Array<{ date: string; xpEarned: number }>, date: string): number {
   return sessions.filter((s) => s.date === date).reduce((a, s) => a + s.xpEarned, 0)
 }
 

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useStore } from '../store'
 import { SPECIALTIES } from '../data/specialties'
 import { calculateXP } from '../data/xp'
-import { ACHIEVEMENTS } from '../data/achievements'
 import type { Specialty } from '../types'
 
 interface Props {

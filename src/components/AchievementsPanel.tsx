@@ -2,7 +2,7 @@ import { useStore } from '../store'
 import { ACHIEVEMENTS } from '../data/achievements'
 
 export function AchievementsPanel() {
-  const { sessions, unlockedAchievements } = useStore()
+  const { unlockedAchievements } = useStore()
   const unlockedIds = new Set(unlockedAchievements.map((u) => u.achievementId))
 
   return (
@@ -16,10 +16,6 @@ export function AchievementsPanel() {
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {ACHIEVEMENTS.map((ach) => {
           const unlocked = unlockedIds.has(ach.id)
-          // progress hint
-          const totalQ = sessions.reduce((a, s) => a + s.passmedQuestions, 0)
-          const totalCards = sessions.reduce((a, s) => a + s.ankiCards, 0)
-
           return (
             <div
               key={ach.id}
