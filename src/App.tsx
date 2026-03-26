@@ -32,6 +32,7 @@ export default function App() {
         <div className="flex items-center gap-2">
           <span className="text-brand-400 font-black text-xl tracking-tight">Med</span>
           <span className="text-white font-black text-xl tracking-tight">way</span>
+          <span className="text-lg ml-1">🦌</span>
         </div>
         <nav className="hidden sm:flex gap-1">
           {NAV_ITEMS.map((item) => (

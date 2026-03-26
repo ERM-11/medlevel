@@ -47,7 +47,7 @@ export function StatsCharts() {
             <XAxis dataKey="date" tick={{ fill: '#6b7280', fontSize: 10 }} />
             <YAxis tick={{ fill: '#6b7280', fontSize: 10 }} />
             <Tooltip contentStyle={tooltipStyle} cursor={{ fill: '#1f2937' }} />
-            <Bar dataKey="xp" fill="#6366f1" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="xp" fill="#FF6B9D" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
@@ -63,9 +63,9 @@ export function StatsCharts() {
             <Line
               type="monotone"
               dataKey="accuracy"
-              stroke="#2dd4bf"
+              stroke="#4FC3F7"
               strokeWidth={2}
-              dot={{ fill: '#2dd4bf', r: 3 }}
+              dot={{ fill: '#4FC3F7', r: 3 }}
               connectNulls
             />
           </LineChart>

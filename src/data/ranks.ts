@@ -9,7 +9,7 @@ export const RANKS: RankThreshold[] = [
   { rank: 'F2 Doctor',            minXP: 18000,  color: '#fb923c', emoji: '💊' },
   { rank: 'Core Trainee',         minXP: 30000,  color: '#facc15', emoji: '🔬' },
   { rank: 'Registrar',            minXP: 50000,  color: '#f87171', emoji: '🩺' },
-  { rank: 'Consultant',           minXP: 80000,  color: '#6366f1', emoji: '👨‍⚕️' },
+  { rank: 'Consultant',           minXP: 80000,  color: '#FF6B9D', emoji: '🦌' },
 ]
 
 export function getRank(xp: number): RankThreshold {

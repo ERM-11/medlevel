@@ -30,7 +30,7 @@ export function CharacterCard() {
           <div className="text-sm font-semibold" style={{ color: rank.color }}>
             {rank.rank}
           </div>
-          <div className="text-gray-400 text-xs">{totalXP.toLocaleString()} XP total</div>
+          <div className="text-gray-400 text-xs">{totalXP.toLocaleString()} XP · Cotton Candy Doctor</div>
         </div>
         {streak > 0 && (
           <div className="ml-auto text-right">

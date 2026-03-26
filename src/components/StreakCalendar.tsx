@@ -44,7 +44,7 @@ export function StreakCalendar() {
                     backgroundColor:
                       xp === 0
                         ? '#1f2937'
-                        : `rgba(99, 102, 241, ${intensity})`,
+                        : `rgba(255, 107, 157, ${intensity})`,
                   }}
                 />
               )
@@ -58,7 +58,7 @@ export function StreakCalendar() {
           <div
             key={v}
             className="w-3 h-3 rounded-sm"
-            style={{ backgroundColor: v === 0.1 ? '#1f2937' : `rgba(99, 102, 241, ${v})` }}
+            style={{ backgroundColor: v === 0.1 ? '#1f2937' : `rgba(255, 107, 157, ${v})` }}
           />
         ))}
         <span>More</span>
